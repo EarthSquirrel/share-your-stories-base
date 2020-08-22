@@ -1,19 +1,25 @@
+% Test if something is empty, if so do #2 else do #3
+\def \ifempty#1{\def\temp{#1} \ifx\temp\empty }
+\newcommand{\testEmpty}[3]{\ifempty{#1} #2 \else #3 \fi}
+
 % Make the command for organizing stories
 % \story{name}{title}{story}{pronouns}{major}{year}
 
 \newcommand{\story}[6]{
     \section*{\uppercase{\textbf{#1}}: #2}
     #3 \\
-    \textit{-#4} \\
-    \textit{-#5, #6}
+    \textit{\testEmpty{#4}{}{-#4}} \\
+    % If major is there add , only if year in school is also there
+    \textit{\testEmpty{#5}{}{-#5\testEmpty{#6}{}{, #6}}}
 }
 
 % \story{name}{title}{story}{pronouns}{major}{year}{city}{state}
 \newcommand{\storytwo}[8]{
     \section{\uppercase{\textbf{#1}}: #2}
     #3 \\
-    \quad\textit{#4} \\
-    \quad\textit{#5, #6} \\
-    \quad\textbf{#7, #8}
+    \textit{\testEmpty{#4}{}{-#4}} \\
+    % If major is there add , only if year in school is also there
+    \textit{\testEmpty{#5}{}{-#5\testEmpty{#6}{}{, #6}}} \\
+    \textit{\testEmpty{#7}{}{-#7\testEmpty{#8}{}{, #8}}} \\
 }
 
