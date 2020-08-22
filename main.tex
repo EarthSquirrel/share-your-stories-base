@@ -1,0 +1,59 @@
+% 
+%https://www.overleaf.com/latex/templates/book-template-using-the-classicthesis-package/kkbxhcwrmdgk
+% book example for classicthesis.sty
+\documentclass[12pt,letterpaper,footinclude=true,headinclude=true]{book} % KOMA-Script book
+\usepackage[T1]{fontenc}                
+\usepackage{lipsum}
+\usepackage[linedheaders,parts,pdfspacing]{classicthesis} % ,manychapters
+%\usepackage[osf]{libertine}
+\usepackage{amsthm}
+\usepackage{fullpage} % Thank you Anne!!!!!!
+\usepackage{color}
+\newcommand{\payAttention}[3]{{[[\color{#1}{\textbf{#2: }}\color{blue}{#3}]]}}
+%\renewcommand{\payAttention}[3]{} %% to hide!
+\newcommand{\todo}[1]{\payAttention{red}{TODO}{#1}}
+\newcommand{\xSays}[3]{\payAttention{#1}{#2 Says}{#3}}
+
+\title{Share Your Stories}
+\author{TODO: Authors}
+%\date{}  % ***** If this is ever printed, add the date printed *****
+
+
+\begin{document}
+	\maketitle
+	
+	\tableofcontents 
+	
+	%	\automark[section]{chapter}
+	%	
+	%\renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
+	%	\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}}
+	
+	% use \cleardoublepage here to avoid problems with pdfbookmark
+	%\cleardoublepage\part{Test Part}
+	
+	% include custom commands and formatting for the stories
+	\input{misc-tex/formatting}
+	
+	\chapter*{Preface}
+	\addcontentsline{toc}{chapter}{Preface}
+	\input{misc-tex/preface}
+	
+	\chapter{Some Background Info}
+	\input{identities/identities}
+	
+	\chapter{Stories Set 1}
+	\input{stories/example-set1/stories}
+	
+	\chapter*{Acknowledgments}
+	\input{misc-tex/acknowledgments}
+	
+	
+	{
+		\bibliographystyle{acm}
+		\bibliography{references}
+		
+	}
+
+
+\end{document}

@@ -1,0 +1,30 @@
+# I'm using this to store random related files
+writings
+
+# Don't want to commit (most) binary files
+*.docx
+*.doc
+
+# Ignore other latex files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.vtc
+
+# Ignore temporary files
+*.swp
+*.swo
+~$* # Microsoft word
+# TODO: Add other temporary file types
+
+# Ignore mac specific files
+*/.DB_Store
+
+# Random files that I don't think will be there
+.ropeproject
